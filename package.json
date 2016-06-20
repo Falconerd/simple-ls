@@ -1,6 +1,6 @@
 {
   "name": "simple-ls",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Limited UNIX command 'ls' functionality for node",
   "main": "index.js",
   "bin": "bin.js",
