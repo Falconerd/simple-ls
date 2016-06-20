@@ -17,7 +17,7 @@ var args = process.argv.slice(2).filter(function(arg) {
   }
 });
 
-if (help || args.length === 0) {
+if (help) {
   var log = help ? console.log : console.error;
   log("Usage: simple-ls <path> [options]");
   log("");
@@ -28,6 +28,8 @@ if (help || args.length === 0) {
   log("  -h, --help ......... display this information.");
   log("  -r, --recursive .... recursively list all files and folders.");
   process.exit(help ? 0 : 1);
-} else {
+} else if (args.length) {
   ls(args[0], args[1]);
+} else {
+  ls();
 }

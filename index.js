@@ -1,14 +1,21 @@
 var fs = require("fs");
 var recursiveReaddir = require("recursive-readdir");
 
-function logFiles(files) {
+function logFiles(files, path) {
+  var slash = (process.platform === "win32" ? "\\" : "/");
+  if (path === "." || !path) {
+    path = "";
+    slash = "";
+  }
   for (var i = 0; i < files.length; i++) {
-    console.log(files[i]);
+    console.log(path + slash + files[i]);
   }
 }
 
 function ls(path, options) {
-  if (!options) {
+  if (!path) {
+    standard();
+  } else if (!options) {
     standard(path);
   } else if (validOptions(options)) {
     if (options === "-h" || options === "--help") {
@@ -25,12 +32,13 @@ function ls(path, options) {
 }
 
 function standard(path) {
+  if (!path) path = ".";
   fs.readdir(path, function(err, files) {
     if (err) {
       console.error(err);
       process.exit(0);
     } else {
-      logFiles(files);
+      logFiles(files, path);
     }
   });
 }
