@@ -1,0 +1,14 @@
+{
+  "name": "simple-ls",
+  "version": "0.1.0",
+  "description": "Limited UNIX command 'ls' functionality for node",
+  "main": "index.js",
+  "bin": "bin.js",
+  "scripts": {
+  },
+  "author": "Dylan Falconer",
+  "license": "MIT",
+  "dependencies": {
+    "recursive-readdir": "^2.0.0"
+  }
+}
